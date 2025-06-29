@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { getMyApplications } = require('../controllers/applicationsController');
+const applicationsController = require('../controllers/applicationsController');
+const { verifyToken } = require('../middleware/authMiddleware');
+router.post('/', applicationsController.applyJob);
+router.get('/my', verifyToken, getMyApplications);
+router.get('/', applicationsController.getApplications);
+router.get('/:userId', applicationsController.getUserApplications);
+module.exports = router;
