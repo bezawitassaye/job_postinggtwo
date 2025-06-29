@@ -6,7 +6,7 @@ export default function AdminJobs() {
   const [jobs, setJobs] = useState([]);
 
   const fetchJobs = async () => {
-    const res = await fetch('http://localhost:5000/api/jobs');
+    const res = await fetch('http://job-postinggtwoowow.onrender.com/api/jobs');
     const data = await res.json();
     setJobs(data);
   };
