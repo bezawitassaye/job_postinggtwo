@@ -45,9 +45,9 @@ export default function Navbar() {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
             <Image 
-              src="/employee-career-word-removebg-preview.png" 
+              src="/e.png" 
               alt="Job Portal Logo" 
-              width={120} 
+              width={140} 
               height={80} 
               priority
             />
@@ -105,12 +105,12 @@ export default function Navbar() {
           ) : (
             <div className="flex items-center space-x-4">
               <Link href="/auth/login">
-                <span className="text-white text-xl bg-sky-900 py-4 px-12 rounded-full cursor-pointer hover:bg-gray-200 hover:text-black hover:border-2">
+                <span className="text-white text-xl bg-sky-900 py-4 px-12 rounded-full cursor-pointer hover:bg-transparent hover:text-black hover:border-2 hover:border-gray-200 hover:text-sky-900">
                   Login
                 </span>
               </Link>
               <Link href="/auth/register">
-                <span className="text-sky-900 text-xl py-4 hover:py-4 px-7 rounded-full border-2 border-gray-200 cursor-pointer hover:bg-sky-900 hover:border-0">
+                <span className="text-sky-900 text-xl py-4 hover:text-white hover:py-4 px-7 rounded-full border-2 border-gray-200 cursor-pointer hover:bg-sky-900 hover:border-0">
                   Register
                 </span>
               </Link>
