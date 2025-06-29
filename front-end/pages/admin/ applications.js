@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import Navbar from '@/components/Navbar';
-import { useAuth } from '@/components/AuthContext';
+import Navbar from '../../components/Navbar';
+
+import { useAuth } from '../../components/AuthContext';
+
 
 export default function AdminApplications() {
   const { user, token } = useAuth();

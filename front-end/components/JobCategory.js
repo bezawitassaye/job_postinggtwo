@@ -5,7 +5,7 @@ import {
   FaUserSecret, FaLaptopCode, FaHospital, FaUniversity, 
   FaStore, FaBriefcase
 } from 'react-icons/fa';
-import Job from '../../back-end/models/Job';
+
 
 export default function JobCategory() {
   const categories = [
