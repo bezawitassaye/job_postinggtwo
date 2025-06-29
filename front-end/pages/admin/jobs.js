@@ -19,7 +19,7 @@ export default function AdminJobs() {
     if (!confirm('Delete this job?')) return;
 
     try {
-      await fetch(`http://localhost:5000/api/jobs/${id}`, {
+      await fetch(`http://job-postinggtwoowow.onrender.com/api/jobs/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
       });

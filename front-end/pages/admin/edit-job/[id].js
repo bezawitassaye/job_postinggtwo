@@ -13,7 +13,7 @@ export default function EditJob() {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:5000/api/jobs/${id}`)
+      fetch(`http://job-postinggtwoowow.onrender.com/api/jobs/${id}`)
         .then(res => res.json())
         .then(data => {
           setTitle(data.title);

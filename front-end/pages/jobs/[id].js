@@ -9,7 +9,7 @@ export default function JobDetail() {
 
   useEffect(() => {
     if (query.id) {
-      fetch(`http://localhost:5000/api/jobs/${query.id}`)
+      fetch(`http://job-postinggtwoowow.onrender.com/api/jobs/${query.id}`)
         .then(res => res.json())
         .then(setJob);
     }
