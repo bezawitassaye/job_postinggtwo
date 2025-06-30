@@ -18,13 +18,7 @@ export default function LoginModal({ onClose }) {
 
         <LoginForm onSuccess={onClose} />
 
-        <button
-          onClick={onClose}
-          className="mt-4 w-full bg-gray-300 text-black p-2 rounded hover:bg-gray-400"
-          type="button"
-        >
-          Cancel
-        </button>
+       
       </div>
     </div>
   );
