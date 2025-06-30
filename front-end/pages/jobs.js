@@ -34,7 +34,7 @@ export default function JobsPage() {
     <>
       <Navbar />
 
-      <section className="bg-blue-50 pt-28 pb-16 min-h-screen">
+      <section className="bg-blue-50 pt-35 pb-16 min-h-screen">
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Page Title */}
