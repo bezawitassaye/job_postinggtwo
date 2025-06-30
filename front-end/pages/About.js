@@ -8,7 +8,7 @@ export default function About() {
       <Navbar />
 
       {/* ABOUT SECTION */}
-      <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+      <section className="max-w-7xl mx-auto px-4 py-40 grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-4xl font-bold text-sky-900 mb-4">Crafting Excellence Together</h2>
           <p className="text-gray-700">
