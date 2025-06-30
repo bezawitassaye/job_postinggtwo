@@ -69,7 +69,7 @@ export default function Navbar() {
           {user ? (
             <div className="relative">
               <button onClick={() => setShowPopup(!showPopup)} aria-label="User menu" className="focus:outline-none">
-                <FaUserCircle size={28} className="hover:text-gray-500" />
+                <FaUserCircle size={28} className="text-gray-700 hover:text-gray-500" />
               </button>
               {showPopup && (
                 <div ref={popupRef} className="absolute right-0 mt-2 w-64 bg-white text-black rounded shadow-lg p-4 z-50">
