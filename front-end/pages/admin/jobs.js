@@ -32,7 +32,7 @@ export default function AdminJobs() {
   return (
     <>
       <Navbar />
-      <div className="max-w-5xl mx-auto px-4 py-28  min-h-screen">
+      <div className="max-w-5xl mx-auto px-4 py-35  min-h-screen">
         <h1 className="text-4xl font-bold text-sky-900 mb-8">Manage Jobs</h1>
         <Link href="/admin/new-job" className="inline-block bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-500 transition mb-6">
           Create New Job
