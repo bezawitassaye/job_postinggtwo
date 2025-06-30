@@ -12,7 +12,7 @@ export default function JobDetail() {
     if (query.id) {
       setLoading(true);
       setError(null);
-      fetch(`https://job-postinggtwoowow.onrender.com/api/jobs/${query.id}`)
+      fetch(`https://job-postinggtwooow.onrender.com/api/jobs/${query.id}`)
         .then(res => {
           if (!res.ok) {
             throw new Error(`Error fetching job: ${res.statusText}`);

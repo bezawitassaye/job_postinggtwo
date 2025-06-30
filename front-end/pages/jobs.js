@@ -14,7 +14,7 @@ export default function JobsPage() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch(`https://job-postinggtwoowow.onrender.com/api/jobs`);
+        const res = await fetch(`https://job-postinggtwooow.onrender.com/api/jobs`);
         if (!res.ok) {
           throw new Error(`Failed to fetch: ${res.status}`);
         }
