@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-// import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbar';
 
 export default function JobDetail() {
   const { query } = useRouter();
@@ -37,8 +37,8 @@ export default function JobDetail() {
 
   return (
     <div>
-      {/* <Navbar /> */}
-      <div className="p-6">
+      <Navbar />
+      <div className="p-50">
         <h1 className="text-3xl">{job.title}</h1>
         <p className="text-lg">{job.company} - {job.location}</p>
         <p className="mt-4">{job.description}</p>

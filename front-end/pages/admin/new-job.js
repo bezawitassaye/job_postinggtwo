@@ -14,7 +14,7 @@ export default function NewJob() {
     e.preventDefault();
 
     try {
-      await fetch('http://job-postinggtwoowow.onrender.com/api/jobs', {
+      await fetch('https://job-postinggtwoowow.onrender.com/api/jobs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

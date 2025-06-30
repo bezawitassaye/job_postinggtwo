@@ -10,7 +10,7 @@ export default function AdminApplications() {
 
   useEffect(() => {
     if (user?.isAdmin) {
-      fetch('http://job-postinggtwoowow.onrender.com/api/applications', {
+      fetch('https://job-postinggtwoowow.onrender.com/api/applications', {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => res.json())
