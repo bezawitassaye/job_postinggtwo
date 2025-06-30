@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import Navbar from '../components/Navbar';
-
+import Footer from '../components/Footer';
 export default function About() {
   return (
     <>
       <Navbar />
 
       {/* ABOUT SECTION */}
-      <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+      <section className="max-w-7xl mx-auto px-4 py-16 mt-100 grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-4xl font-bold text-sky-900 mb-4">Crafting Excellence Together</h2>
           <p className="text-gray-700">
@@ -17,7 +17,7 @@ export default function About() {
             with precision and care.
           </p>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-20">
           <Image
             src="/Screenshot from 2025-06-29 15-23-35.png" 
             alt="About Us"
@@ -124,6 +124,7 @@ export default function About() {
           />
         </div>
       </section>
+      <Footer/>
     </>
   );
 }
