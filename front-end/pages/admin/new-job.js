@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { useRouter } from 'next/router';
@@ -9,6 +10,10 @@ export default function NewJob() {
   const [company, setCompany] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
+  const [type, setType] = useState('');
+  const [contract, setContract] = useState('');
+  const [salary, setSalary] = useState('');
+  const [logo, setLogo] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +21,12 @@ export default function NewJob() {
     try {
       await fetch('https://job-postinggtwoowow.onrender.com/api/jobs', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, company, location, description }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title, company, location, description,
+          type, contract, salary, logo
+        }),
       });
-
       router.push('/admin/jobs');
     } catch (error) {
       console.error('Error posting job:', error);
@@ -31,32 +36,56 @@ export default function NewJob() {
   return (
     <>
       <Navbar />
-      <div className="max-w-2xl mx-auto px-4 py-35  min-h-screen">
+      <div className="max-w-2xl mx-auto px-4 py-20 min-h-screen">
         <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">Post a New Job</h1>
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6 border border-gray-200">
           <input
-            className="border border-gray-300 p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-sky-600"
+            className="border p-3 w-full rounded"
             placeholder="Job Title"
             value={title}
             onChange={e => setTitle(e.target.value)}
             required
           />
           <input
-            className="border border-gray-300 p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-sky-600"
+            className="border p-3 w-full rounded"
             placeholder="Company Name"
             value={company}
             onChange={e => setCompany(e.target.value)}
             required
           />
           <input
-            className="border border-gray-300 p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-sky-600"
+            className="border p-3 w-full rounded"
             placeholder="Location"
             value={location}
             onChange={e => setLocation(e.target.value)}
             required
           />
+          <input
+            className="border p-3 w-full rounded"
+            placeholder="Job Type (e.g. Full-Time • Remote)"
+            value={type}
+            onChange={e => setType(e.target.value)}
+          />
+          <input
+            className="border p-3 w-full rounded"
+            placeholder="Contract (e.g. Permanent, Contract)"
+            value={contract}
+            onChange={e => setContract(e.target.value)}
+          />
+          <input
+            className="border p-3 w-full rounded"
+            placeholder="Salary (e.g. $100,000 - $120,000)"
+            value={salary}
+            onChange={e => setSalary(e.target.value)}
+          />
+          <input
+            className="border p-3 w-full rounded"
+            placeholder="Logo URL (optional)"
+            value={logo}
+            onChange={e => setLogo(e.target.value)}
+          />
           <textarea
-            className="border border-gray-300 p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-sky-600"
+            className="border p-3 w-full rounded"
             placeholder="Description"
             value={description}
             onChange={e => setDescription(e.target.value)}
