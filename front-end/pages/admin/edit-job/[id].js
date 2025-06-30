@@ -28,7 +28,7 @@ export default function EditJob() {
     e.preventDefault();
 
     try {
-      await fetch(`http://localhost:5000/api/jobs/${id}`, {
+      await fetch(`https://job-postinggtwoowow.onrender.com/api/jobs/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
