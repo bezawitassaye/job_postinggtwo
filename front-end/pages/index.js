@@ -30,7 +30,7 @@ export default function Home() {
           {/* Left Column - Text */}
           <div className="md:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-7xl font-bold text-sky-900">
-              Welcome to Our Job Portal
+              Welcomem to Our Job Portal
             </h1>
             <p className="text-sky-800 text-2xl">
               Find your dream job, apply easily, and take the next step in your career with us.
