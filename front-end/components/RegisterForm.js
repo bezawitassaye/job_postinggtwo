@@ -59,8 +59,8 @@ export default function RegisterForm({ onSuccess }) {
           value={email}
           required
           onChange={(e) => setEmail(e.target.value)}
-        className="w-full bg-sky-900 text-white font-semibold px-4 py-3 rounded-full hover:bg-sky-800 transition"
-         />
+          className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-600 placeholder-gray-400"
+        />
         <label className="block text-gray-700 mb-1">Password</label>
         <input
           type="password"
@@ -68,7 +68,7 @@ export default function RegisterForm({ onSuccess }) {
           value={password}
           required
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full bg-sky-900 text-white font-semibold px-4 py-3 rounded-full hover:bg-sky-800 transition"
+           className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-600 placeholder-gray-400"
         />
         <button
           type="submit"
