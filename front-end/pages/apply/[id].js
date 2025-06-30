@@ -32,7 +32,7 @@ export default function ApplyPage() {
   return (
     <div>
       <Navbar />
-      <div className="max-w-xl mx-auto p-6">
+      <div className="max-w-xl mx-auto p-40">
         <h1 className="text-2xl mb-4">Apply for Job</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <textarea
