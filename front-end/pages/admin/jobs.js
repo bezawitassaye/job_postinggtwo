@@ -49,12 +49,12 @@ export default function AdminJobs() {
                 >
                   Edit
                 </Link>
-                <button
-                  onClick={() => handleDelete(job._id)}
+                <Link
+                  href={`/admin/delete-job/${job._id}`}
                   className="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-500 transition"
                 >
                   Delete
-                </button>
+                </Link>
               </div>
             </li>
           ))}
