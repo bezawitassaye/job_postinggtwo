@@ -44,7 +44,7 @@ export default function EditJob() {
   return (
     <>
       <Navbar />
-      <div className="max-w-2xl mx-auto px-4 py-28 bg-blue-50 min-h-screen">
+      <div className="max-w-2xl mx-auto px-4 py-35  min-h-screen">
         <h1 className="text-4xl font-bold text-sky-900 mb-8 text-center">Edit Job</h1>
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6 border border-gray-200">
           <input
