@@ -34,7 +34,7 @@ export default function LoginForm({ onSuccess }) {
      <div className="bg-white  max-w-md w-full p-8 ">
         <h1 className="text-3xl font-bold text-center text-sky-900 mb-6">Sign In to Your Account</h1>
        {error && <div className="text-red-500 mb-2">{error}</div>}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 text-black">
        <label className="block text-gray-700 mb-1">Username</label>
 
         <input
