@@ -31,49 +31,33 @@ export default function LoginForm({ onSuccess }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-50 px-4">
-      <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-8 border border-gray-200">
-        <h1 className="text-3xl font-bold text-center text-sky-900 mb-6">Sign In to Your Account</h1>
-
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-gray-700 mb-1">Username</label>
-            <input
-              type="text"
-              placeholder="Your username"
-              value={username}
-              required
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-600 placeholder-gray-400"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700 mb-1">Password</label>
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-600 placeholder-gray-400"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-sky-900 text-white font-semibold px-4 py-3 rounded-full hover:bg-sky-800 transition"
-          >
-            Login
-          </button>
-        </form>
-      </div>
+    <div className='text-black'>
+      <h1 className="text-2xl mb-4">Login</h1>
+      {error && <div className="text-red-500 mb-2">{error}</div>}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          required
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full border p-2 rounded placeholder:text-gray-500"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          required
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full border p-2 rounded"
+        />
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white p-2 rounded"
+        >
+          Login
+        </button>
+      </form>
     </div>
   );
 }

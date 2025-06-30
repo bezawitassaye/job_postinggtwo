@@ -1,10 +1,11 @@
+// components/LoginModal.jsx
 'use client';
 
 import LoginForm from './LoginForm';
 
 export default function LoginModal({ onClose }) {
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center">
+    <div className="fixed inset-0 z-50 bg-transparent backdrop-blur-sm flex items-center justify-center">
       <div className="relative bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-50">
         <button
           onClick={onClose}
