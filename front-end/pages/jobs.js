@@ -62,13 +62,13 @@ export default function JobsPage() {
                 >
                   {/* Top Row: Logo + Company + Location */}
                   <div className="flex items-center mb-4">
-                    {/* <Image
+                    <Image
                       src={job.logo || '/copmany.png'}
                       alt={job.company}
                       width={50}
                       height={50}
                       className="rounded mr-4"
-                    /> */}
+                    />
                     <div>
                       <h3 className="text-lg font-semibold text-sky-900">{job.company}</h3>
                       <p className="text-gray-500">{job.location}</p>
