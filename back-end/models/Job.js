@@ -8,7 +8,7 @@ const JobSchema = new mongoose.Schema({
   type: { type: String, default: 'Full-Time • Remote' },
   contract: { type: String, default: 'Permanent' },
   salary: { type: String, default: 'Negotiable' },
-  logo: { type: String, default: '/company-placeholder.png' },
+  logo: { type: String, default: '/copmany.png' },
   posted: { type: String, default: 'Just now' },
   createdAt: { type: Date, default: Date.now }
 });
