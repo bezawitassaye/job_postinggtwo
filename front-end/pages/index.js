@@ -9,7 +9,7 @@ import OpportunitySection from '../components/OpportunitySection';
 import PopularJobs from '../components/PopularJobs';
 import Testimonials from '../components/Testimonials';
 import ApplyProcess from '../components/ApplyProcess';
-import Footer from '../components/Footer';
+
 
 export default function Home() {
   const [query, setQuery] = useState('');
@@ -87,7 +87,7 @@ export default function Home() {
       <PopularJobs/>
       <Testimonials/>
       <ApplyProcess/>
-      <Footer/>
+    
 
 
     </>
