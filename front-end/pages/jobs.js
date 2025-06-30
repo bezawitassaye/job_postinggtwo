@@ -91,6 +91,13 @@ export default function JobsPage() {
                   {/* Bottom Row: Apply + Posted Time */}
                   <div className="flex items-center justify-between mt-auto">
                     <Link
+                      href={`/jobs/${job._id}`}
+                      className="bg-yellow-500 text-white px-5 py-2 rounded-full hover:bg-yellow-400 transition"
+                    >
+                      Details
+                    </Link>
+
+                    <Link
                       href={`/apply/${job._id}`}
                       className="bg-sky-900 text-white px-5 py-2 rounded-full hover:bg-sky-800 transition"
                     >
