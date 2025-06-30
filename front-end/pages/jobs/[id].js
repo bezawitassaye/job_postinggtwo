@@ -37,7 +37,7 @@ export default function JobDetail() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="p-6">
         <h1 className="text-3xl">{job.title}</h1>
         <p className="text-lg">{job.company} - {job.location}</p>
