@@ -1,18 +1,27 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { FaUserCircle, FaBars, FaTimes } from 'react-icons/fa';
 import { useAuth } from './AuthContext';
 import Link from 'next/link';
 import Image from 'next/image';
+
+// Dynamically load modal components (client-side only)
+const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
+const RegisterModal = dynamic(() => import('./RegisterModal'), { ssr: false });
 
 export default function Navbar() {
   const { user, logout, token } = useAuth();
   const [showPopup, setShowPopup] = useState(false);
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   const popupRef = useRef();
-
   const username = user?.username || 'User';
 
+  // Fetch user's applied jobs
   useEffect(() => {
     if (showPopup && token) {
       fetch('http://localhost:5000/api/applications/my', {
@@ -24,12 +33,13 @@ export default function Navbar() {
     }
   }, [showPopup, token]);
 
+  // Handle clicking outside of user popup
   useEffect(() => {
-    function handleClickOutside(e) {
+    const handleClickOutside = (e) => {
       if (popupRef.current && !popupRef.current.contains(e.target)) {
         setShowPopup(false);
       }
-    }
+    };
     if (showPopup) {
       document.addEventListener('mousedown', handleClickOutside);
     }
@@ -37,32 +47,24 @@ export default function Navbar() {
   }, [showPopup]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-blue-50 text-white z-50 shadow ">
-
+    <nav className="fixed top-0 left-0 right-0 bg-blue-50 text-white z-50 shadow">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center">
-        
-        {/* Left: Logo */}
+        {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
-            <Image 
-              src="/e.png" 
-              alt="Job Portal Logo" 
-              width={140} 
-              height={80} 
-              priority
-            />
+            <Image src="/e.png" alt="Job Portal Logo" width={140} height={80} priority />
           </Link>
         </div>
 
-        {/* Center: Nav Links (Desktop) */}
-        <div className="hidden md:flex flex-1 justify-center space-x-6  items-center text-xl text-gray-400">
+        {/* Center Nav Links */}
+        <div className="hidden md:flex flex-1 justify-center space-x-6 items-center text-xl text-gray-400">
           <Link href="/"><span className="hover:text-gray-500 cursor-pointer">Home</span></Link>
           <Link href="/About"><span className="hover:text-gray-500 cursor-pointer">About</span></Link>
           <Link href="/ContactUs"><span className="hover:text-gray-500 cursor-pointer">Contact</span></Link>
           <Link href="/jobs"><span className="hover:text-gray-500 cursor-pointer">Jobs</span></Link>
         </div>
 
-        {/* Right: Auth Links or User Icon */}
+        {/* Right Auth Section */}
         <div className="hidden md:flex items-center justify-end space-x-4">
           {user ? (
             <div className="relative">
@@ -70,10 +72,7 @@ export default function Navbar() {
                 <FaUserCircle size={28} className="hover:text-gray-300" />
               </button>
               {showPopup && (
-                <div
-                  ref={popupRef}
-                  className="absolute right-0 mt-2 w-64 bg-white text-black rounded shadow-lg p-4 z-50"
-                >
+                <div ref={popupRef} className="absolute right-0 mt-2 w-64 bg-white text-black rounded shadow-lg p-4 z-50">
                   <p className="font-semibold mb-2">Hello, {username}</p>
                   <h4 className="font-semibold mb-1">Applied Jobs:</h4>
                   {appliedJobs.length === 0 ? (
@@ -103,16 +102,24 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="flex items-center space-x-4">
-              <Link href="/auth/login">
-                <span className="text-white text-xl bg-sky-900 py-4 px-12 rounded-full cursor-pointer hover:bg-transparent hover:text-black hover:border-2 hover:border-gray-200 hover:text-sky-900">
-                  Login
-                </span>
-              </Link>
-              <Link href="/auth/register">
-                <span className="text-sky-900 text-xl py-4 hover:text-white hover:py-4 px-7 rounded-full border-2 border-gray-200 cursor-pointer hover:bg-sky-900 hover:border-0">
-                  Register
-                </span>
-              </Link>
+              <button
+                onClick={() => {
+                  setShowLogin(true);
+                  setShowRegister(false);
+                }}
+                className="text-white text-xl bg-sky-900 py-4 px-12 rounded-full cursor-pointer hover:bg-transparent hover:text-black hover:border-2 hover:border-gray-200 hover:text-sky-900"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => {
+                  setShowRegister(true);
+                  setShowLogin(false);
+                }}
+                className="text-sky-900 text-xl py-4 px-7 rounded-full border-2 border-gray-200 cursor-pointer hover:bg-sky-900 hover:text-white"
+              >
+                Register
+              </button>
             </div>
           )}
         </div>
@@ -127,7 +134,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-gray-700 px-4 pb-4 space-y-2">
+        <div className="md:hidden bg-gray-700 px-4 pb-4 space-y-2 text-white">
           <Link href="/"><span className="block py-2 hover:text-gray-300">Home</span></Link>
           <Link href="/about"><span className="block py-2 hover:text-gray-300">About</span></Link>
           <Link href="/contact"><span className="block py-2 hover:text-gray-300">Contact</span></Link>
@@ -144,21 +151,35 @@ export default function Navbar() {
               Logout
             </button>
           ) : (
-            <div className="flex flex-col items-center gap-3 rounded-lg text-sm pt-2">
-              <Link href="/auth/login">
-                <span className="text-white text-xl bg-sky-900 py-3 px-10 rounded-full cursor-pointer hover:bg-gray-400 hover:text-black hover:border-2">
-                  Login
-                </span>
-              </Link>
-              <Link href="/auth/register">
-                <span className="text-white text-xl py-3 px-9 rounded-full border-2 border-gray cursor-pointer hover:bg-sky-900 hover:border-0">
-                  Register
-                </span>
-              </Link>
+            <div className="flex flex-col items-center gap-3 pt-2">
+              <button
+                onClick={() => {
+                  setShowLogin(true);
+                  setShowRegister(false);
+                  setMenuOpen(false);
+                }}
+                className="text-white text-xl bg-sky-900 py-3 px-10 rounded-full hover:bg-gray-400 hover:text-black"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => {
+                  setShowRegister(true);
+                  setShowLogin(false);
+                  setMenuOpen(false);
+                }}
+                className="text-white text-xl py-3 px-9 rounded-full border-2 border-gray cursor-pointer hover:bg-sky-900 hover:border-0"
+              >
+                Register
+              </button>
             </div>
           )}
         </div>
       )}
+
+      {/* Login/Register Modals */}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+      {showRegister && <RegisterModal onClose={() => setShowRegister(false)} />}
     </nav>
   );
 }
