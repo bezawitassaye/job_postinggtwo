@@ -16,7 +16,7 @@ export default function Register() {
     setSuccess('');
 
     try {
-      const res = await fetch('https://job-postinggtwooow.onrender.com/api/auth/register', {
+      const res = await fetch('https://job-postinggtwoowow.onrender.com/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

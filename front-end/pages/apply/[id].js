@@ -20,7 +20,7 @@ export default function ApplyPage() {
     formData.append('message', message);
     formData.append('jobId', query.id);
 
-    await fetch('https://job-postinggtwooow.onrender.com/api/applications', {
+    await fetch('https://job-postinggtwoowow.onrender.com/api/applications', {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
