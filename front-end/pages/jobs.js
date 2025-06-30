@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
+import { ImageError } from 'next/dist/server/image-optimizer';
 
 export default function JobsPage() {
   const [jobs, setJobs] = useState([]);
