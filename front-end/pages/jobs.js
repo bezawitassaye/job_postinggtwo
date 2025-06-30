@@ -63,7 +63,7 @@ export default function JobsPage() {
                   {/* Top Row: Logo + Company + Location */}
                   <div className="flex items-center mb-4">
                     <Image
-                      src={job.logo || '/company-placeholder.png'}
+                      src={job.logo || '/copmany.png'}
                       alt={job.company}
                       width={50}
                       height={50}
