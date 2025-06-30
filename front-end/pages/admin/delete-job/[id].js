@@ -45,7 +45,7 @@ export default function DeleteJob() {
   return (
     <>
       <Navbar />
-      <div className="max-w-2xl mx-auto px-4 py-28 bg-blue-50 min-h-screen">
+      <div className="max-w-2xl mx-auto px-4 py-35  min-h-screen">
         <h1 className="text-4xl font-bold text-red-700 mb-8 text-center">Delete Job</h1>
 
         {error && (
