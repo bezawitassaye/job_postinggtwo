@@ -13,19 +13,26 @@ export default function NewJob() {
   const [type, setType] = useState('');
   const [contract, setContract] = useState('');
   const [salary, setSalary] = useState('');
-  const [logo, setLogo] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const jobData = {
+      title,
+      company,
+      location,
+      description,
+      type,
+      contract,
+      salary,
+      logo: '/copmany.png',    // FORCE DEFAULT
+    };
 
     try {
       await fetch('https://job-postinggtwoowow.onrender.com/api/jobs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title, company, location, description,
-          type, contract, salary, logo
-        }),
+        body: JSON.stringify(jobData),
       });
       router.push('/admin/jobs');
     } catch (error) {
@@ -77,12 +84,6 @@ export default function NewJob() {
             placeholder="Salary (e.g. $100,000 - $120,000)"
             value={salary}
             onChange={e => setSalary(e.target.value)}
-          />
-          <input
-            className="border p-3 w-full rounded"
-            placeholder="Logo URL (optional)"
-            value={logo}
-            onChange={e => setLogo(e.target.value)}
           />
           <textarea
             className="border p-3 w-full rounded"

@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -38,7 +39,7 @@ export default function AdminJobs() {
   return (
     <>
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 py-35 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 py-16 min-h-screen">
         <h1 className="text-4xl font-bold text-sky-900 mb-12 text-center">Manage Jobs</h1>
 
         <div className="text-center mb-12">
@@ -55,7 +56,7 @@ export default function AdminJobs() {
               key={job._id}
               className="bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col justify-between"
             >
-              {/* Top row: Logo, Company, Location */}
+              {/* Top Row: Logo + Company + Location */}
               <div className="flex items-center mb-4">
                 <Image
                   src={job.logo || '/company-placeholder.png'}
@@ -73,16 +74,21 @@ export default function AdminJobs() {
               {/* Job Title */}
               <h4 className="text-xl font-bold text-gray-700 mb-2">{job.title}</h4>
 
-              {/* Job Type, Contract, Salary */}
+              {/* Type, Contract, Salary */}
               <p className="text-gray-500 mb-1">{job.type || 'Full-Time • Remote'}</p>
               <p className="text-gray-500 mb-1">{job.contract || 'Permanent'}</p>
-              <p className="text-green-600 font-semibold mb-4">{job.salary || 'Negotiable'}</p>
+              <p className="text-green-600 font-semibold mb-2">{job.salary || 'Negotiable'}</p>
 
-              {/* Job Description */}
-              <p className="text-gray-500 mb-6 line-clamp-3">{job.description}</p>
+              {/* Description */}
+              <p className="text-gray-500 mb-4">{job.description}</p>
 
-              {/* Buttons */}
-              <div className="flex space-x-4 mt-auto">
+              {/* Bottom Row: Buttons */}
+              <div className="flex flex-wrap gap-3 mt-auto">
+                <Link href={`/jobs/${job._id}`}>
+                  <a className="flex-1 bg-sky-900 text-white px-4 py-2 rounded-full hover:bg-sky-800 transition text-center">
+                    Details
+                  </a>
+                </Link>
                 <Link href={`/admin/edit-job/${job._id}`}>
                   <a className="flex-1 bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-400 transition text-center">
                     Edit
