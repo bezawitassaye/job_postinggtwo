@@ -31,13 +31,20 @@ export default function LoginForm({ onSuccess }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center bg-blue-50 px-4">
       <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-8 border border-gray-200">
         <h1 className="text-3xl font-bold text-center text-sky-900 mb-6">Sign In to Your Account</h1>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-center">
-            {error}
+          <div className="relative bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <span className="block text-center">{error}</span>
+            <button
+              onClick={() => setError('')}
+              className="absolute top-2 right-2 text-red-500 hover:text-red-700 focus:outline-none"
+              aria-label="Dismiss error"
+            >
+              ✖
+            </button>
           </div>
         )}
 
