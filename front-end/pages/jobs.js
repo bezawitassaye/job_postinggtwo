@@ -4,10 +4,13 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 
+
 export default function JobsPage() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -27,13 +30,12 @@ export default function JobsPage() {
     };
 
     fetchJobs();
-  }, []);
+  }, [API_BASE_URL]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <Navbar />
-
-      <main className="flex-grow max-w-4xl mx-auto mt-24 space-y-6 p-4">
+      <div className="max-w-4xl mx-auto mt-24 space-y-6 p-4">
         <h1 className="text-3xl font-bold mb-6 text-sky-900">Available Jobs</h1>
 
         {loading && <p>Loading jobs...</p>}
@@ -68,7 +70,7 @@ export default function JobsPage() {
             ))}
           </div>
         )}
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
