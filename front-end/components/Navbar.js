@@ -60,7 +60,6 @@ export default function Navbar() {
           <Link href="/About"><span className="hover:text-gray-500 cursor-pointer">About</span></Link>
           <Link href="/ContactUs"><span className="hover:text-gray-500 cursor-pointer">Contact</span></Link>
           <Link href="/jobs"><span className="hover:text-gray-500 cursor-pointer">Jobs</span></Link>
-          <Link href="/blogs"><span className="hover:text-gray-500 cursor-pointer">Blogs</span></Link>
         </div>
 
         {/* Right: Auth Links or User Icon */}
