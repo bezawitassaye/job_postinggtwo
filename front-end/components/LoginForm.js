@@ -31,7 +31,7 @@ export default function LoginForm({ onSuccess }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-50 px-4">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-8 border border-gray-200">
         <h1 className="text-3xl font-bold text-center text-sky-900 mb-6">Sign In to Your Account</h1>
 
